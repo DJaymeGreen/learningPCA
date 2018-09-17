@@ -55,10 +55,23 @@ def openCSVFile(fileName):
 listOfData, totalNumberOfVals, numberOfCols = openCSVFile('nndb_flat.csv')
 
 """
-Normalizes X to Zero Mean
+Normalizes X to Zero Mean 
+For each column: calculate mean and subtract mean from each value in col
 """
 def normalizeZeroMean():
-    pass
+    #Find the mean
+    colMeans = [0] * len(listOfData[1])
+    for row in listOfData:
+        for col in range(0,len(row)):
+            colMeans[col] += row[col]
+    for mean in range(0,len(colMeans)):
+        colMeans[mean] /= len(listOfData)
+
+    #Subtract mean from every data point
+    for row in range(0,len(listOfData)):
+        for col in range(0,len(listOfData[row])):
+            listOfData[row][col] -= colMeans[col]
+    return listOfData
 
 """
 Finds the covariance matrix of the normalized data
@@ -71,3 +84,5 @@ Finds the eigenvectors of the given covariance matrix
 """
 def eigenvectorsOfCovarMatrix():
     pass
+
+listOfData = normalizeZeroMean()
