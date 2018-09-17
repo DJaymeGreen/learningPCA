@@ -54,3 +54,20 @@ def openCSVFile(fileName):
 
 listOfData, totalNumberOfVals, numberOfCols = openCSVFile('nndb_flat.csv')
 
+"""
+Normalizes X to Zero Mean
+"""
+def normalizeZeroMean():
+    pass
+
+"""
+Finds the covariance matrix of the normalized data
+"""
+def covarianceMatrix():
+    pass
+
+"""
+Finds the eigenvectors of the given covariance matrix
+"""
+def eigenvectorsOfCovarMatrix():
+    pass
